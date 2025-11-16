@@ -819,12 +819,10 @@ footer {
         justify-content: center;
     }
 
-    /* Show three-dot menu icon on mobile */
     .nav-toggle-label {
         display: flex;
     }
 
-    /* Stack and hide nav links by default on mobile */
     .nav-links {
         position: absolute;
         top: 100%;
