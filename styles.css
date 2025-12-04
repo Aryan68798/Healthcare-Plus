@@ -1,3 +1,15 @@
+ :root {
+    --primary: #0f9ed5;
+    --primary-dark: #0b6e97;
+    --accent: #38c9a5;
+    --bg: #f5fbff;
+    --bg-alt: #ffffff;
+    --text-main: #1b2a3b;
+    --text-muted: #6c7a89;
+    --border-soft: #dde7f0;
+    --shadow-soft: 0 12px 30px rgba(15, 158, 213, 0.13);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +23,8 @@ html {
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #ffffff;
-    background-color: #2a2a2a;
+    color: var(--text-main);
+    background-color: var(--bg);
 }
 
 /* Navigation */
@@ -21,9 +33,9 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(2, 2, 2, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(15, 158, 213, 0.08);
     z-index: 1000;
     padding: 1rem 0;
     animation: slideDown 0.5s ease;
@@ -31,8 +43,8 @@ nav {
 }
 
 nav.scrolled {
-    opacity: 0.9;
-    background: rgba(2, 2, 2, 0.98);
+    opacity: 0.98;
+    background: rgba(255, 255, 255, 0.98);
 }
 
 @keyframes slideDown {
@@ -53,7 +65,6 @@ nav .container {
     align-items: center;
 }
 
-/* Mobile menu toggle (three dots) */
 .nav-toggle {
     display: none;
 }
@@ -81,7 +92,7 @@ nav .container {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #4c65d3 0%, #d81c0b 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -93,14 +104,13 @@ nav ul {
     gap: 2rem;
 }
 
-/* Ensure main nav list has a class for mobile control */
 .nav-links {
     display: flex;
 }
 
 nav a {
     text-decoration: none;
-    color: #efebeb;
+    color: var(--text-main);
     font-weight: 500;
     transition: color 0.3s;
     position: relative;
@@ -113,7 +123,7 @@ nav a::after {
     left: 0;
     width: 0;
     height: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #df2b2b 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     transition: width 0.3s;
 }
 
@@ -122,12 +132,12 @@ nav a:hover::after {
 }
 
 nav a.active {
-    color: #667eea;
+    color: var(--primary);
 }
 
 .cta-button {
-    background: linear-gradient(135deg, #667eea 0%, #ea2121 100%);
-    color: white !important;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: #ffffff !important;
     padding: 0.7rem 1.5rem;
     border-radius: 50px;
     transition: transform 0.3s, box-shadow 0.3s;
@@ -144,7 +154,7 @@ nav a.active {
 
 .hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #ef0606 100%);
+    background: radial-gradient(circle at top left, #ffffff 0%, #e1f5ff 40%, #c5f3ec 85%);
     display: flex;
     align-items: center;
     position: relative;
@@ -176,14 +186,14 @@ nav a.active {
 
 .hero-content h1 {
     font-size: 3.5rem;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 1.5rem;
     animation: fadeInUp 0.8s ease;
 }
 
 .hero-content p {
     font-size: 1.3rem;
-    color: rgba(255,255,255,0.9);
+    color: var(--text-muted);
     margin-bottom: 2rem;
     animation: fadeInUp 0.8s ease 0.2s backwards;
 }
@@ -215,8 +225,8 @@ nav a.active {
 }
 
 .btn-primary {
-    background: white;
-    color: #667eea;
+    background: var(--primary);
+    color: #ffffff;
 }
 
 .btn-primary:hover {
@@ -226,13 +236,13 @@ nav a.active {
 
 .btn-secondary {
     background: transparent;
-    color: white;
-    border: 2px solid white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .btn-secondary:hover {
-    background: white;
-    color: #667eea;
+    background: var(--primary);
+    color: #ffffff;
 }
 
 .hero-image {
@@ -242,7 +252,7 @@ nav a.active {
 .hero-image img {
     width: 100%;
     border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(32, 31, 31, 0.3);
+    box-shadow: var(--shadow-soft);
     animation: floatImage 3s ease-in-out infinite;
 }
 
@@ -257,7 +267,7 @@ nav a.active {
 
 .features-section {
     padding: 5rem 2rem;
-    background: rgb(25, 24, 24);
+    background: var(--bg-alt);
 }
 
 .features-grid {
@@ -273,14 +283,14 @@ nav a.active {
 .feature-item {
     text-align: center;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #ffffff;
     border-radius: 15px;
     transition: transform 0.3s, background 0.3s;
 }
 
 .feature-item:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
+    background: #f2f9ff;
 }
 
 .feature-icon {
@@ -290,40 +300,40 @@ nav a.active {
 
 .feature-item h3 {
     font-size: 1.3rem;
-    color: white;
+    color: var(--text-main);
     margin-bottom: 0.8rem;
 }
 
 .feature-item p {
-    color: #e0e0e0;
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
 .video-section {
     padding: 5rem 2rem;
-    background: linear-gradient(to bottom, #060606, #1a1919);
+    background: linear-gradient(to bottom, #ffffff, #e7f5ff);
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #e90e0e 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: white;
+    color: var(--primary);
 }
 
 .section-subtitle {
     text-align: center;
-    color: #666;
+    color: var(--text-muted);
     margin-bottom: 3rem;
     font-size: 1.1rem;
 }
 
 .map-section .section-subtitle {
-    color: #e0e0e0;
+    color: var(--text-muted);
 }
 
 .video-container {
@@ -331,7 +341,7 @@ nav a.active {
     margin: 0 auto;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-soft);
     transition: transform 0.3s;
 }
 
@@ -347,7 +357,7 @@ nav a.active {
 
 .services {
     padding: 5rem 2rem;
-    background: rgb(25, 24, 24);
+    background: var(--bg);
 }
 
 .services .container {
@@ -363,7 +373,7 @@ nav a.active {
 }
 
 .service-card {
-    background: linear-gradient(135deg, #2f7df3 0%, #d42e18 100%);
+    background: #ffffff;
     padding: 2.5rem;
     border-radius: 20px;
     transition: all 0.4s;
@@ -378,18 +388,18 @@ nav a.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #f30606 0%, #2a62b5 100%);
-    opacity: 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    opacity: 0.06;
     transition: opacity 0.4s;
 }
 
 .service-card:hover::before {
-    opacity: 1;
+    opacity: 0.18;
 }
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(239, 19, 3, 0.3);
+    box-shadow: var(--shadow-soft);
 }
 
 .service-card * {
@@ -415,13 +425,13 @@ nav a.active {
 
 .service-card:hover h3,
 .service-card:hover p {
-    color: white;
+    color: #ffffff;
 }
 
 .stats {
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #e30b0b 100%);
-    color: white;
+    background: linear-gradient(135deg, #e1f5ff 0%, #c5f3ec 100%);
+    color: var(--text-main);
 }
 
 .stats-grid {
@@ -446,7 +456,7 @@ nav a.active {
 
 .doctors {
     padding: 5rem 2rem;
-    background: #2a2a2a;
+    background: var(--bg);
 }
 
 .doctors .container {
@@ -462,10 +472,10 @@ nav a.active {
 }
 
 .doctor-card {
-    background: rgb(38, 36, 36);
+    background: #ffffff;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-soft);
     transition: all 0.4s;
 }
 
@@ -477,7 +487,7 @@ nav a.active {
 .doctor-image {
     width: 100%;
     height: 300px;
-    background: linear-gradient(135deg, #667eea 0%, #ee120f 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -492,23 +502,23 @@ nav a.active {
 .doctor-info h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: #d0c4c4;
+    color: var(--text-main);
 }
 
 .doctor-info .specialty {
-    color: #667eea;
+    color: var(--primary);
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .doctor-info p {
-    color: #ffffff;
+    color: var(--text-muted);
     margin-bottom: 1rem;
 }
 
 .contact {
     padding: 5rem 2rem;
-    background: #2a2a2a;
+    background: var(--bg);
 }
 
 .contact .container {
@@ -517,7 +527,7 @@ nav a.active {
 }
 
 .contact-form {
-    background: white;
+    background: #ffffff;
     padding: 3rem;
     border-radius: 20px;
 }
@@ -530,19 +540,19 @@ nav a.active {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #333;
+    color: var(--text-main);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--border-soft);
     border-radius: 10px;
     font-family: inherit;
     font-size: 1rem;
     transition: box-shadow 0.3s, border-color 0.3s;
-    background: white;
+    background: #ffffff;
 }
 
 .form-group input:focus,
@@ -569,8 +579,8 @@ nav a.active {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #667eea 0%, #ec0606 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: #ffffff;
     padding: 1rem 3rem;
     border: none;
     border-radius: 50px;
@@ -587,8 +597,8 @@ nav a.active {
 }
 
 footer {
-    background: #1a1a2e;
-    color: white;
+    background: #ffffff;
+    color: var(--text-main);
     padding: 3rem 2rem 1rem;
 }
 
@@ -603,7 +613,7 @@ footer {
 
 .footer-section h3 {
     margin-bottom: 1rem;
-    color: #667eea;
+    color: var(--primary);
 }
 
 .footer-section ul {
@@ -615,27 +625,27 @@ footer {
 }
 
 .footer-section a {
-    color: rgba(255,255,255,0.7);
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .footer-section a:hover {
-    color: #667eea;
+    color: var(--primary);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: rgba(255,255,255,0.5);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    color: var(--text-muted);
 }
 
 .page-header {
     padding: 150px 2rem 80px;
-    background: linear-gradient(135deg, #667eea 0%, #ef0606 100%);
+    background: linear-gradient(135deg, #e1f5ff 0%, #c5f3ec 100%);
     text-align: center;
-    color: white;
+    color: var(--text-main);
 }
 
 .page-header h1 {
@@ -650,7 +660,7 @@ footer {
 
 .about-content {
     padding: 5rem 2rem;
-    background: #2a2a2a;
+    background: var(--bg);
 }
 
 .about-grid {
@@ -664,7 +674,7 @@ footer {
 
 .about-text h2 {
     font-size: 2.5rem;
-    background: linear-gradient(135deg, #667eea 0%, #e90e0e 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -673,7 +683,7 @@ footer {
 
 .about-text p {
     font-size: 1.1rem;
-    color: #e0e0e0;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.8;
 }
@@ -681,12 +691,12 @@ footer {
 .about-image img {
     width: 100%;
     border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-soft);
 }
 
 .values-section {
     padding: 5rem 2rem;
-    background: rgb(25, 24, 24);
+    background: var(--bg-alt);
 }
 
 .values-grid {
@@ -700,7 +710,7 @@ footer {
 }
 
 .value-card {
-    background: linear-gradient(135deg, #2f7df3 0%, #d42e18 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     padding: 2.5rem;
     border-radius: 20px;
     text-align: center;
@@ -739,7 +749,7 @@ footer {
 }
 
 .contact-info {
-    background: linear-gradient(135deg, #667eea 0%, #ef0606 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     padding: 3rem;
     border-radius: 20px;
     color: white;
@@ -773,14 +783,14 @@ footer {
 }
 
 .contact-form-wrapper {
-    background: white;
+    background: #ffffff;
     padding: 3rem;
     border-radius: 20px;
 }
 
 .contact-form-wrapper h2 {
     font-size: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #e90e0e 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -789,7 +799,7 @@ footer {
 
 .map-section {
     padding: 5rem 2rem;
-    background: rgb(25, 24, 24);
+    background: var(--bg-alt);
 }
 
 .map-container {
@@ -797,12 +807,171 @@ footer {
     margin: 3rem auto 0;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: var(--shadow-soft);
 }
 
 .map-container iframe {
     display: block;
     width: 100%;
+}
+
+/* Shop (Medicines) */
+.shop-page {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    background: var(--bg);
+}
+
+.shop-intro {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.shop-intro p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.shop-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.8rem;
+}
+
+.medicine-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.8rem 1.6rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.medicine-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.medicine-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.medicine-tag {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(15, 158, 213, 0.1);
+    color: var(--primary-dark);
+    font-weight: 600;
+}
+
+.medicine-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.medicine-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.4rem;
+}
+
+.medicine-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.medicine-dose {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.qty-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+    gap: 1rem;
+}
+
+.qty-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.qty-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+    padding: 0.25rem 0.6rem;
+    background: #f9fcff;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.qty-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(15, 158, 213, 0.3);
+}
+
+.qty-value {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.qty-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.shop-summary {
+    max-width: 1200px;
+    margin: 2.5rem auto 0;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.shop-summary strong {
+    color: var(--primary-dark);
+}
+
+.shop-summary span {
+    color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
@@ -843,7 +1012,7 @@ footer {
         position: relative;
     }
 
-    /* When checkbox is checked, show the menu */
+    
     .nav-toggle:checked ~ .nav-links {
         opacity: 1;
         transform: translateY(0);
@@ -881,5 +1050,11 @@ footer {
 
     .features-grid {
         grid-template-columns: 1fr;
+    }
+
+    .shop-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
 }
